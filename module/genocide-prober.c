@@ -44,9 +44,10 @@ device_read(struct file * file, char * buffer, size_t length, loff_t *offset)
     currval = atomic_long_read(&killcount);
     total = currval - started;
 
-    if(length > 0) 
-        copy_to_user(buffer, &total, sizeof(total));
+    if ((length == 0) || (length < sizeof(total))
+        return 0;
 
+    copy_to_user(buffer, &total, sizeof(total));
     return sizeof(total);
 }
 
