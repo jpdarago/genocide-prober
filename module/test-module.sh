@@ -1,6 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
+make clean
 sudo rmmod genocide_prober
 make
 sudo insmod genocide-prober.ko
