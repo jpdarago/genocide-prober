@@ -20,6 +20,7 @@ static ssize_t
 device_read(struct file * file, char * buffer, size_t length, loff_t *offset)
 {
     int total;
+
     if ((length == 0) || (length < sizeof(total)))
         return 0;
    
