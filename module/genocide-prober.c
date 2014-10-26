@@ -68,7 +68,6 @@ static int genocide_prober_init(void)
 
     printk("Registering genocide prober\n");
 
-    atomic_long_set(&killcount, 0); 
     ret = misc_register(&killcounter_dev);
     if (ret) {
         pr_err("misc device register failed\n");
