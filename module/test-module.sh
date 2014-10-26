@@ -2,9 +2,9 @@
 set -euo pipefail
 
 make clean
-sudo rmmod genocide_prober
+(lsmod | grep genocide_prober) && rmmod genocide_prober
 make
-sudo insmod genocide-prober.ko
+insmod genocide-prober.ko
 pushd ../program
 make
 popd
