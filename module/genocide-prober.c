@@ -26,7 +26,7 @@ device_read(struct file * file, char * buffer, size_t length, loff_t *offset)
    
     total = atomic_read(&killcount);
     copy_to_user(buffer, &total, sizeof(total));
-    return length;
+    return sizeof(total);
 }
 
 static ssize_t 
